@@ -176,16 +176,24 @@ select.form-control.product_id {
                 <div class="panel-heading">Actions</div>
 
 					<div class="panel-body">
-						<center><input type="submit" class="btn btn-default btn-lg" name="save" value="Place Order">  <input type='button' class="btn btn-info btn-lg" id='hideshow' value='Show/Hide Reciept'</center>
+						<center><input type="submit" class="btn btn-default btn-lg" name="save" value="Place Order">  
+						<button type="button" id='hideshow' class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+						  Generate Reciept
+						</button>
+						</center>
 					</div>
             	</div>
 		  </div>
 		</form>
-		<div class="row hidden" id="content">
-		<div class="col-md-4">
-			<div class="panel panel-default">
-				<div class="panel-heading">Orders</div>
-
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Reciept</h4>
+			  </div>
+			  <div class="modal-body">
 				<div class="panel-body " id="toPrint">
 
 					<table class="table table-striped" >
@@ -204,7 +212,6 @@ select.form-control.product_id {
 								<td>{!! $order->amount !!}</td>
 								<td>{!! $order->quantity !!}</td>
 								<td>{!! $order->unitprice !!}</td>
-								
 							
 							</tr>
 							@endforeach
@@ -217,9 +224,15 @@ select.form-control.product_id {
 
 				</div>
 			</div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			  </div>
+			</div>
+		  </div>
 		</div>
-	</div>
-	</div>
+		
 	<!-- Row End -->
 	
  <script lang='javascript'>
