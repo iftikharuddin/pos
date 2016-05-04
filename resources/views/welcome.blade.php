@@ -13,6 +13,12 @@
 					  <input type="text" ng-model="yourName" placeholder="Enter a name here">
 					  <hr>
 					  <h1>Hello @{{ yourName }} !</h1>
+						<div class="panel-body">
+							<input type="text" ng-model="data.test" placeholder="What..">
+								Hello @{{ data.test  }}
+							<hr>
+							<button class="@{{ data.test }} btn btn-lg"> I'm BTN</button>
+						</div>
 					</div>
                     @if(!Auth::guest() && Auth::user()->admin)
                     	<a class="btn btn-primary" href="{{ url('/orders') }}">Place Order</a>
