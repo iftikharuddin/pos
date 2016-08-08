@@ -28,7 +28,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('user.index')->with('users', User::all());
+    	$users = User::all();
+        return view('user.index', compact('users'));
     }
 
     /**
@@ -65,7 +66,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-		$user = Auth::user();
+	$user = Auth::user();
         return view('user.profile')->with('user', $user);
     }
 
@@ -77,8 +78,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-		$user = User::find($id);
-        return view('user.update')->with('userToUpdate',$user);
+	$user = User::find($id);
+        return view('user.update')->with('userToUpdate', $user);
     }
 
     /**
